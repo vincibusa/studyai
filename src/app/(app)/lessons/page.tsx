@@ -120,7 +120,7 @@ export default function LessonsPage() {
         </div>
 
         <div className="flex items-center space-x-3">
-          <div className="flex items-center bg-gray-100 rounded-lg p-1">
+          <div className="flex items-center glass rounded-lg p-1 backdrop-blur-sm border border-gray-200/50">
             <Button
               variant={viewMode === 'grid' ? 'default' : 'ghost'}
               size="sm"
@@ -139,7 +139,7 @@ export default function LessonsPage() {
             </Button>
           </div>
           
-          <Button className="bg-primary hover:bg-primary/90">
+          <Button variant="gradient" className="shadow-3d">
             <Plus className="w-4 h-4 mr-2" />
             New Lesson
           </Button>
@@ -154,73 +154,85 @@ export default function LessonsPage() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="xl:w-64 flex-shrink-0"
         >
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-lg flex items-center">
-                <Filter className="w-5 h-5 mr-2" />
-                Quick filters
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-2">
+          <div className="glass-card rounded-2xl p-6 backdrop-blur-lg">
+            <div className="flex items-center mb-6">
+              <motion.div 
+                className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-primary/20"
+                whileHover={{ rotate: 5, scale: 1.1 }}
+              >
+                <Filter className="w-5 h-5 text-primary" />
+              </motion.div>
+              <h3 className="text-lg font-bold text-gray-900 ml-3">Quick filters</h3>
+            </div>
+            <div className="space-y-2">
               {filters.map((filter) => (
-                <button
+                <motion.button
                   key={filter.id}
                   onClick={() => setSelectedFilter(filter.id)}
-                  className={`w-full flex items-center justify-between p-3 rounded-lg text-left transition-colors ${
+                  className={`w-full flex items-center justify-between p-3 rounded-xl text-left transition-all duration-200 magnetic-hover ${
                     selectedFilter === filter.id
-                      ? 'bg-primary text-white'
-                      : 'hover:bg-gray-50'
+                      ? 'bg-primary text-white shadow-3d'
+                      : 'glass-card backdrop-blur-sm hover:bg-primary/10'
                   }`}
+                  whileHover={{ y: -2, scale: 1.02 }}
                 >
                   <span className="font-medium">{filter.label}</span>
                   <Badge variant={selectedFilter === filter.id ? 'secondary' : 'outline'}>
                     {filter.count}
                   </Badge>
-                </button>
+                </motion.button>
               ))}
-            </CardContent>
-          </Card>
+            </div>
+          </div>
 
           {/* Recently viewed */}
-          <Card className="mt-6">
-            <CardHeader>
-              <CardTitle className="text-lg">Recently viewed</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
+          <div className="glass-card rounded-2xl p-6 backdrop-blur-lg mt-6">
+            <h3 className="text-lg font-bold text-gray-900 mb-4">Recently viewed</h3>
+            <div className="space-y-3">
+              <motion.div 
+                className="flex items-center space-x-3 p-3 glass-card rounded-xl backdrop-blur-sm cursor-pointer magnetic-hover"
+                whileHover={{ y: -2, scale: 1.01 }}
+              >
                 <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
                 <div className="flex-1">
-                  <div className="text-sm font-medium">Linear Algebra</div>
-                  <div className="text-xs text-gray-500">2 lessons</div>
+                  <div className="text-sm font-medium text-gray-900">Linear Algebra</div>
+                  <div className="text-xs text-gray-600">2 lessons</div>
                 </div>
-              </div>
-              <div className="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
+              </motion.div>
+              <motion.div 
+                className="flex items-center space-x-3 p-3 glass-card rounded-xl backdrop-blur-sm cursor-pointer magnetic-hover"
+                whileHover={{ y: -2, scale: 1.01 }}
+              >
                 <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
                 <div className="flex-1">
-                  <div className="text-sm font-medium">Neural Networks</div>
-                  <div className="text-xs text-gray-500">1 lesson</div>
+                  <div className="text-sm font-medium text-gray-900">Neural Networks</div>
+                  <div className="text-xs text-gray-600">1 lesson</div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+              </motion.div>
+            </div>
+          </div>
 
           {/* Storage */}
-          <Card className="mt-6">
-            <CardHeader>
-              <CardTitle className="text-lg">Storage</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span>2.1 GB</span>
-                  <span className="text-gray-500">of 5.0 GB</span>
-                </div>
-                <div className="bg-gray-200 rounded-full h-2">
-                  <div className="bg-primary rounded-full h-2" style={{ width: '42%' }} />
-                </div>
+          <div className="glass-card rounded-2xl p-6 backdrop-blur-lg mt-6">
+            <h3 className="text-lg font-bold text-gray-900 mb-4">Storage</h3>
+            <div className="space-y-3">
+              <div className="flex justify-between text-sm">
+                <span className="text-gray-900 font-medium">2.1 GB</span>
+                <span className="text-gray-600">of 5.0 GB</span>
               </div>
-            </CardContent>
-          </Card>
+              <div className="bg-gray-200/50 rounded-full h-2 overflow-hidden">
+                <motion.div
+                  className="bg-mesh-primary h-2 rounded-full"
+                  initial={{ width: 0 }}
+                  animate={{ width: '42%' }}
+                  transition={{ duration: 1, delay: 0.5 }}
+                />
+              </div>
+              <div className="text-xs text-gray-600 text-center">
+                42% storage used
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         {/* Main Content */}
@@ -238,11 +250,11 @@ export default function LessonsPage() {
                 placeholder="Search lessons..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10"
+                className="pl-10 glass backdrop-blur-sm border-gray-200/50"
               />
             </div>
             
-            <Button variant="outline" className="flex items-center space-x-2">
+            <Button variant="glass" className="flex items-center space-x-2 border-gray-200/50 text-gray-900">
               <span>Sort by Recent</span>
             </Button>
           </motion.div>
@@ -261,24 +273,32 @@ export default function LessonsPage() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.1 * index }}
               >
-                <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-                  <CardHeader className="pb-3">
-                    <div className="flex items-start justify-between">
-                      <div className="flex items-center space-x-3">
-                        <div className={`w-3 h-3 ${lesson.color} rounded-full`}></div>
-                        <div>
-                          <CardTitle className="text-lg">{lesson.title}</CardTitle>
-                          <p className="text-sm text-gray-600 mt-1">{lesson.professor}</p>
-                        </div>
+                <div className="glass-card rounded-2xl p-6 backdrop-blur-lg cursor-pointer magnetic-hover perspective-1000"
+                  whileHover={{ 
+                    y: -5,
+                    rotateY: 2,
+                    scale: 1.02,
+                    transition: { type: "spring", stiffness: 400 }
+                  }}
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center space-x-3">
+                      <motion.div 
+                        className={`w-4 h-4 ${lesson.color} rounded-full flex-shrink-0`}
+                        whileHover={{ scale: 1.2 }}
+                      />
+                      <div>
+                        <h3 className="text-lg font-bold text-gray-900">{lesson.title}</h3>
+                        <p className="text-sm text-gray-600 mt-1">{lesson.professor}</p>
                       </div>
-                      <Button variant="ghost" size="sm">
-                        <MoreHorizontal className="w-4 h-4" />
-                      </Button>
                     </div>
-                  </CardHeader>
+                    <Button variant="ghost" size="sm" className="text-gray-400 hover:text-gray-900">
+                      <MoreHorizontal className="w-4 h-4" />
+                    </Button>
+                  </div>
                   
-                  <CardContent>
-                    <div className="flex items-center justify-between mb-4">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-4 text-sm text-gray-600">
                         <div className="flex items-center space-x-1">
                           <Calendar className="w-4 h-4" />
@@ -295,44 +315,42 @@ export default function LessonsPage() {
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex space-x-2">
-                        {lesson.hasTranscript && (
-                          <Badge variant="outline" className="text-xs">
-                            <FileText className="w-3 h-3 mr-1" />
-                            Transcript
-                          </Badge>
-                        )}
-                        {lesson.hasSummary && (
-                          <Badge variant="outline" className="text-xs">
-                            📋 Summary
-                          </Badge>
-                        )}
-                        {lesson.hasQuiz && (
-                          <Badge variant="outline" className="text-xs">
-                            <Brain className="w-3 h-3 mr-1" />
-                            Quiz
-                          </Badge>
-                        )}
-                        {lesson.hasMindMap && (
-                          <Badge variant="outline" className="text-xs">
-                            🧠 Mind Map
-                          </Badge>
-                        )}
-                      </div>
+                    <div className="flex flex-wrap gap-2">
+                      {lesson.hasTranscript && (
+                        <Badge variant="secondary" className="text-xs">
+                          <FileText className="w-3 h-3 mr-1" />
+                          Transcript
+                        </Badge>
+                      )}
+                      {lesson.hasSummary && (
+                        <Badge variant="secondary" className="text-xs">
+                          📋 Summary
+                        </Badge>
+                      )}
+                      {lesson.hasQuiz && (
+                        <Badge variant="secondary" className="text-xs">
+                          <Brain className="w-3 h-3 mr-1" />
+                          Quiz
+                        </Badge>
+                      )}
+                      {lesson.hasMindMap && (
+                        <Badge variant="secondary" className="text-xs">
+                          🧠 Mind Map
+                        </Badge>
+                      )}
                     </div>
 
                     <div className="flex space-x-2">
-                      <Button size="sm" variant="outline" className="flex-1">
+                      <Button size="sm" variant="glass" className="flex-1 border-gray-200/50 text-gray-900">
                         <Play className="w-4 h-4 mr-2" />
                         Play
                       </Button>
-                      <Button size="sm" className="flex-1 bg-primary hover:bg-primary/90">
+                      <Button size="sm" variant="gradient" className="flex-1 shadow-3d">
                         Open Workspace
                       </Button>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </motion.div>

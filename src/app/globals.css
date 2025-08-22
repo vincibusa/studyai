@@ -2,14 +2,53 @@
 
 @layer base {
   :root {
+    /* Base Colors - Mantenendo l'identità esistente */
     --background: 0 0% 100%;
     --foreground: 224 71.4% 4.1%;
-    --card: 0 0% 100%;
-    --card-foreground: 224 71.4% 4.1%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 224 71.4% 4.1%;
     --primary: 239 84% 67%;
     --primary-foreground: 210 20% 98%;
+    
+    /* Nuovo Sistema di Gradienti Multidimensionali 2025 */
+    --electric-blue: 210 100% 60%;
+    --cyber-purple: 270 80% 60%;
+    --neural-green: 160 70% 45%;
+    --quantum-orange: 30 100% 55%;
+    
+    /* Semantic Gradient System */
+    --success-gradient: linear-gradient(135deg, hsl(160, 70%, 45%) 0%, hsl(160, 80%, 35%) 100%);
+    --warning-gradient: linear-gradient(135deg, hsl(30, 100%, 55%) 0%, hsl(30, 90%, 45%) 100%);
+    --error-gradient: linear-gradient(135deg, hsl(0, 72%, 50%) 0%, hsl(0, 80%, 40%) 100%);
+    
+    /* Mesh Gradients for Dynamic Backgrounds */
+    --mesh-primary: linear-gradient(
+      135deg,
+      hsl(var(--electric-blue)) 0%,
+      hsl(var(--cyber-purple)) 50%,
+      hsl(var(--primary)) 100%
+    );
+    
+    --mesh-secondary: linear-gradient(
+      135deg,
+      hsl(var(--neural-green)) 0%,
+      hsl(var(--quantum-orange)) 50%,
+      hsl(var(--cyber-purple)) 100%
+    );
+    
+    /* Glassmorphism Variables */
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --backdrop-blur: blur(12px);
+    
+    /* Enhanced Card System */
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --card-glass: rgba(255, 255, 255, 0.08);
+    --card-border-glass: rgba(255, 255, 255, 0.15);
+    
+    /* Rest of existing variables */
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
     --secondary: 220 14.3% 95.9%;
     --secondary-foreground: 220.9 39.3% 11%;
     --muted: 220 14.3% 95.9%;
@@ -30,6 +69,13 @@
   }
 
   .dark {
+    /* Dark mode glassmorphism */
+    --glass-bg: rgba(0, 0, 0, 0.2);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --card-glass: rgba(0, 0, 0, 0.2);
+    --card-border-glass: rgba(255, 255, 255, 0.1);
+    
+    /* Rest of dark mode variables */
     --background: 224 71.4% 4.1%;
     --foreground: 210 20% 98%;
     --card: 224 71.4% 4.1%;
@@ -58,6 +104,7 @@
 }
 
 @theme inline {
+  /* Base Colors */
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-card: hsl(var(--card));
@@ -82,8 +129,24 @@
   --color-chart-3: hsl(var(--chart-3));
   --color-chart-4: hsl(var(--chart-4));
   --color-chart-5: hsl(var(--chart-5));
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  
+  /* New 2025 Gradient Colors */
+  --color-electric-blue: hsl(var(--electric-blue));
+  --color-cyber-purple: hsl(var(--cyber-purple));
+  --color-neural-green: hsl(var(--neural-green));
+  --color-quantum-orange: hsl(var(--quantum-orange));
+  
+  /* Glassmorphism Colors */
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+  --color-card-glass: var(--card-glass);
+  --color-card-border-glass: var(--card-border-glass);
+  
+  /* Typography Stack 2025 */
+  --font-sans: var(--font-inter), var(--font-geist-sans);
+  --font-heading: var(--font-plus-jakarta), var(--font-geist-sans);
+  --font-mono: var(--font-jetbrains-mono), var(--font-geist-mono);
+  
   --radius: var(--radius);
 }
 
@@ -91,8 +154,121 @@
   * {
     @apply border-border;
   }
+  
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: var(--font-sans);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+  
+  code, pre {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism Utility Classes */
+  .glass {
+    background: var(--color-glass-bg);
+    backdrop-filter: var(--backdrop-blur);
+    border: 1px solid var(--color-glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+  
+  .glass-card {
+    background: var(--color-card-glass);
+    backdrop-filter: var(--backdrop-blur);
+    border: 1px solid var(--color-card-border-glass);
+    box-shadow: var(--glass-shadow);
+  }
+  
+  /* Gradient Backgrounds */
+  .bg-mesh-primary {
+    background: var(--mesh-primary);
+  }
+  
+  .bg-mesh-secondary {
+    background: var(--mesh-secondary);
+  }
+  
+  /* Semantic Gradients */
+  .bg-success-gradient {
+    background: var(--success-gradient);
+  }
+  
+  .bg-warning-gradient {
+    background: var(--warning-gradient);
+  }
+  
+  .bg-error-gradient {
+    background: var(--error-gradient);
+  }
+  
+  /* 3D Depth Effects */
+  .shadow-3d {
+    box-shadow: 
+      0 10px 30px rgba(0, 0, 0, 0.15),
+      0 4px 12px rgba(0, 0, 0, 0.1),
+      0 1px 3px rgba(0, 0, 0, 0.06);
+  }
+  
+  .shadow-neobrutal {
+    box-shadow: 
+      4px 4px 0px rgba(0, 0, 0, 0.9),
+      8px 8px 0px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Magnetic Hover Effects */
+  .magnetic-hover {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  .magnetic-hover:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+  
+  /* Morphing Buttons */
+  .btn-morph {
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  .btn-morph:hover {
+    border-radius: 24px;
+    transform: translateY(-1px);
+  }
+  
+  /* 3D Effects */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .translate-z-20 {
+    transform: translateZ(20px);
+  }
+  
+  /* Gradient Animation */
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 15s ease infinite;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 }
