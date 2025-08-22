@@ -13,69 +13,21 @@ import {
   Flame,
   BookOpen,
   Brain,
-  BarChart3
+  BarChart3,
+  AlertCircle,
+  Loader2
 } from 'lucide-react';
+import { useDashboardData } from '@/hooks/useDashboardData';
+import { useAuth } from '@/contexts/AuthContext';
 
-const stats = [
-  {
-    title: 'Study Time This Week',
-    value: '5h 20m',
-    change: '+12%',
-    trend: 'up',
-    icon: Clock,
-  },
-  {
-    title: 'Upcoming Academics',
-    value: '5 assignments due',
-    subtitle: 'Next: Algebra (7 days)',
-    icon: Target,
-  },
-  {
-    title: 'Quiz Performance',
-    value: '65% average score',
-    change: '+5%',
-    trend: 'up',
-    icon: Brain,
-  },
-  {
-    title: 'Study Streak',
-    value: '2 days',
-    subtitle: 'Keep it going!',
-    icon: Flame,
-  },
-];
-
-const subjects = [
-  { name: 'Linear Algebra', progress: 75, color: 'bg-blue-500', nextExam: 'April 28, 2024' },
-  { name: 'Neural Networks', progress: 60, color: 'bg-orange-500', nextExam: 'May 2, 2024' },
-  { name: 'Vector Calculus', progress: 85, color: 'bg-blue-600', nextExam: 'May 5, 2024' },
-  { name: 'Probability', progress: 45, color: 'bg-orange-400', nextExam: 'May 8, 2024' },
-];
-
-const recentActivities = [
-  {
-    type: 'lesson',
-    title: 'Linear Algebra Lecture transcribed',
-    subject: 'Linear Algebra',
-    time: '2 hours ago',
-    icon: BookOpen,
-  },
-  {
-    type: 'quiz',
-    title: 'Neural Networks Quiz completed',
-    subject: 'Neural Networks',
-    time: '5 hours ago',
-    score: '8/10',
-    icon: Brain,
-  },
-  {
-    type: 'summary',
-    title: 'Vector Calculus Summary generated',
-    subject: 'Vector Calculus',
-    time: '1 day ago',
-    icon: BarChart3,
-  },
-];
+// Icon mapping for activity types
+const ActivityIcons = {
+  lesson: BookOpen,
+  quiz: Brain,
+  summary: BarChart3,
+  chat: MessageCircle,
+  mindmap: Target,
+} as const;
 
 const calendarDays = Array.from({ length: 35 }, (_, i) => {
   const day = i - 6; // Start from previous month
@@ -92,6 +44,83 @@ const calendarDays = Array.from({ length: 35 }, (_, i) => {
 });
 
 export default function DashboardPage() {
+  const { user, profile } = useAuth()
+  const { stats, subjects, recentActivities, loading, error } = useDashboardData()
+
+  // Format helper functions
+  const formatTime = (minutes: number): string => {
+    const hours = Math.floor(minutes / 60)
+    const mins = minutes % 60
+    if (hours > 0) {
+      return `${hours}h ${mins}m`
+    }
+    return `${mins}m`
+  }
+
+  const formatDate = (): string => {
+    return new Date().toLocaleDateString('it-IT', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })
+  }
+
+  // Dynamic stats data
+  const dashboardStats = [
+    {
+      title: 'Study Time This Week',
+      value: formatTime(stats.weeklyStudyTime),
+      change: stats.weeklyStudyTime > 0 ? '+12%' : '0%',
+      trend: 'up' as const,
+      icon: Clock,
+    },
+    {
+      title: 'Total Lessons',
+      value: `${stats.lessonsCount} lessons`,
+      subtitle: stats.lessonsCount > 0 ? 'Keep learning!' : 'Start your first lesson',
+      icon: Target,
+    },
+    {
+      title: 'Quiz Performance',
+      value: stats.averageQuizScore > 0 ? `${Math.round(stats.averageQuizScore)}% average` : 'No quizzes yet',
+      change: stats.quizzesCompleted > 0 ? '+5%' : undefined,
+      trend: 'up' as const,
+      icon: Brain,
+    },
+    {
+      title: 'Study Streak',
+      value: `${stats.studyStreak} days`,
+      subtitle: 'Keep it going!',
+      icon: Flame,
+    },
+  ]
+
+  if (loading) {
+    return (
+      <div className="p-6 flex items-center justify-center min-h-96">
+        <div className="text-center space-y-4">
+          <Loader2 className="w-8 h-8 animate-spin text-primary mx-auto" />
+          <p className="text-gray-600">Loading your dashboard...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="p-6 flex items-center justify-center min-h-96">
+        <div className="text-center space-y-4">
+          <AlertCircle className="w-8 h-8 text-red-500 mx-auto" />
+          <p className="text-red-600">Error loading dashboard: {error}</p>
+          <Button variant="outline" onClick={() => window.location.reload()}>
+            Try Again
+          </Button>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="p-6 space-y-6">
       {/* Welcome Section */}
@@ -103,18 +132,20 @@ export default function DashboardPage() {
       >
         <div className="flex justify-between items-start mb-6">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">Welcome, James</h1>
-            <p className="text-gray-600">Thursday, April 25</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">
+              Welcome, {profile?.full_name?.split(' ')[0] || user?.email?.split('@')[0] || 'Student'}
+            </h1>
+            <p className="text-gray-600">{formatDate()}</p>
           </div>
           <div className="text-right">
-            <div className="text-sm text-gray-500 mb-1">Quick Stats</div>
-            <div className="text-2xl font-bold text-primary">April 2024</div>
+            <div className="text-sm text-gray-500 mb-1">Total Study Time</div>
+            <div className="text-2xl font-bold text-primary">{formatTime(stats.totalStudyTime)}</div>
           </div>
         </div>
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          {stats.map((stat, index) => (
+          {dashboardStats.map((stat, index) => (
             <motion.div
               key={index}
               initial={{ y: 20, opacity: 0 }}

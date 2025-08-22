@@ -4,3 +4,188 @@
 [debug] [2025-08-22T11:53:00.094Z] > authorizing via signed-in user (catanzaroepartners@gmail.com)
 [debug] [2025-08-22T11:58:01.154Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
 [debug] [2025-08-22T11:58:01.156Z] > authorizing via signed-in user (catanzaroepartners@gmail.com)
+[debug] [2025-08-22T12:18:24.135Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-22T12:18:24.136Z] > authorizing via signed-in user (catanzaroepartners@gmail.com)
+[debug] [2025-08-22T12:18:42.695Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-22T12:18:42.695Z] > authorizing via signed-in user (catanzaroepartners@gmail.com)
+[info] ✔  Wrote configuration info to firebase.json 
+[info] ✔  Wrote project information to .firebaserc 
+[debug] [2025-08-22T12:18:50.978Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-22T12:18:50.978Z] > authorizing via signed-in user (catanzaroepartners@gmail.com)
+[debug] [2025-08-22T12:19:01.564Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-22T12:19:01.565Z] > authorizing via signed-in user (catanzaroepartners@gmail.com)
+[debug] [2025-08-22T12:19:01.565Z] Checked if tokens are valid: false, expires at: 1755430529980
+[debug] [2025-08-22T12:19:01.565Z] Checked if tokens are valid: false, expires at: 1755430529980
+[debug] [2025-08-22T12:19:01.565Z] > refreshing access token with scopes: []
+[debug] [2025-08-22T12:19:01.566Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-08-22T12:19:01.566Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-08-22T12:19:02.049Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-08-22T12:19:02.049Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-08-22T12:19:02.060Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/studyai-app/services/cloudresourcemanager.googleapis.com [none]
+[debug] [2025-08-22T12:19:02.060Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/studyai-app/services/cloudresourcemanager.googleapis.com x-goog-quota-user=projects/studyai-app
+[debug] [2025-08-22T12:19:03.517Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/studyai-app/services/cloudresourcemanager.googleapis.com 403
+[debug] [2025-08-22T12:19:03.517Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/studyai-app/services/cloudresourcemanager.googleapis.com [omitted]
+[debug] [2025-08-22T12:19:03.517Z] Unable to check that https://cloudresourcemanager.googleapis.com is enabled on studyai-app. Calls to it will fail if it is not enabled
+[debug] [2025-08-22T12:19:03.518Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:03.518Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:03.518Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/studyai-app [none]
+[debug] [2025-08-22T12:19:04.413Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/studyai-app 403
+[debug] [2025-08-22T12:19:04.413Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/studyai-app {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2025-08-22T12:19:04.414Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:04.414Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:04.414Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2025-08-22T12:19:04.414Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"studyai-app","name":"StudyAI - AI-Powered Learning Platform"}
+[debug] [2025-08-22T12:19:04.752Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 400
+[debug] [2025-08-22T12:19:04.753Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"error":{"code":400,"message":"field [display_name] has issue [project display name must be at most 30 characters]","status":"INVALID_ARGUMENT","details":[{"@type":"type.googleapis.com/google.rpc.BadRequest","fieldViolations":[{"field":"display_name","description":"project display name must be at most 30 characters"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"url":"https://cloud.google.com/resource-manager/reference/rest/v1/projects"}]}]}}
+[debug] [2025-08-22T12:19:14.436Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-22T12:19:14.436Z] > authorizing via signed-in user (catanzaroepartners@gmail.com)
+[debug] [2025-08-22T12:19:14.443Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:14.443Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:14.443Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/studyai-platform/services/cloudresourcemanager.googleapis.com [none]
+[debug] [2025-08-22T12:19:14.443Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/studyai-platform/services/cloudresourcemanager.googleapis.com x-goog-quota-user=projects/studyai-platform
+[debug] [2025-08-22T12:19:15.893Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/studyai-platform/services/cloudresourcemanager.googleapis.com 403
+[debug] [2025-08-22T12:19:15.893Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/studyai-platform/services/cloudresourcemanager.googleapis.com [omitted]
+[debug] [2025-08-22T12:19:15.893Z] Unable to check that https://cloudresourcemanager.googleapis.com is enabled on studyai-platform. Calls to it will fail if it is not enabled
+[debug] [2025-08-22T12:19:15.893Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:15.893Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:15.893Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/studyai-platform [none]
+[debug] [2025-08-22T12:19:17.893Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/studyai-platform 403
+[debug] [2025-08-22T12:19:17.893Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/studyai-platform {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2025-08-22T12:19:17.894Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:17.894Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:17.894Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2025-08-22T12:19:17.894Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"studyai-platform","name":"StudyAI Platform"}
+[debug] [2025-08-22T12:19:18.123Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 409
+[debug] [2025-08-22T12:19:18.123Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"error":{"code":409,"message":"Requested entity already exists","status":"ALREADY_EXISTS"}}
+[debug] [2025-08-22T12:19:24.943Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-22T12:19:24.943Z] > authorizing via signed-in user (catanzaroepartners@gmail.com)
+[debug] [2025-08-22T12:19:24.944Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:24.944Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:24.944Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/studyai-2025/services/cloudresourcemanager.googleapis.com [none]
+[debug] [2025-08-22T12:19:24.944Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/studyai-2025/services/cloudresourcemanager.googleapis.com x-goog-quota-user=projects/studyai-2025
+[debug] [2025-08-22T12:19:27.811Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/studyai-2025/services/cloudresourcemanager.googleapis.com 403
+[debug] [2025-08-22T12:19:27.811Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/studyai-2025/services/cloudresourcemanager.googleapis.com [omitted]
+[debug] [2025-08-22T12:19:27.811Z] Unable to check that https://cloudresourcemanager.googleapis.com is enabled on studyai-2025. Calls to it will fail if it is not enabled
+[debug] [2025-08-22T12:19:27.812Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:27.812Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:27.812Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/studyai-2025 [none]
+[debug] [2025-08-22T12:19:32.815Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/studyai-2025 403
+[debug] [2025-08-22T12:19:32.815Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/studyai-2025 {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2025-08-22T12:19:32.816Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:32.816Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:32.817Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2025-08-22T12:19:32.817Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"studyai-2025","name":"StudyAI 2025"}
+[debug] [2025-08-22T12:19:33.543Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 200
+[debug] [2025-08-22T12:19:33.543Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"name":"operations/create_project.global.5024065061530632799"}
+[debug] [2025-08-22T12:19:33.545Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:33.545Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:33.545Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5024065061530632799 [none]
+[debug] [2025-08-22T12:19:34.409Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5024065061530632799 200
+[debug] [2025-08-22T12:19:34.409Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5024065061530632799 {"name":"operations/create_project.global.5024065061530632799"}
+[debug] [2025-08-22T12:19:34.911Z] [Project Creation Poller] Retrying task index 0
+[debug] [2025-08-22T12:19:34.911Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:34.911Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:34.911Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5024065061530632799 [none]
+[debug] [2025-08-22T12:19:35.149Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5024065061530632799 200
+[debug] [2025-08-22T12:19:35.149Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5024065061530632799 {"name":"operations/create_project.global.5024065061530632799","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","gettable":true,"ready":true},"done":true,"response":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.Project","projectNumber":"567745836851","projectId":"studyai-2025","lifecycleState":"ACTIVE","name":"StudyAI 2025","createTime":"2025-08-22T12:19:34.481058Z"}}
+[debug] [2025-08-22T12:19:35.150Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:35.150Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:35.151Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/studyai-2025:addFirebase [none]
+[debug] [2025-08-22T12:19:39.416Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/studyai-2025:addFirebase 200
+[debug] [2025-08-22T12:19:39.416Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/studyai-2025:addFirebase {"name":"operations/workflows/ZjQ0ZWRlODUtMzkzZS00ZmNiLThkZTAtNzIwMDY5ZjA5N2Zl"}
+[debug] [2025-08-22T12:19:39.416Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:39.416Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:39.417Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZjQ0ZWRlODUtMzkzZS00ZmNiLThkZTAtNzIwMDY5ZjA5N2Zl [none]
+[debug] [2025-08-22T12:19:42.879Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZjQ0ZWRlODUtMzkzZS00ZmNiLThkZTAtNzIwMDY5ZjA5N2Zl 200
+[debug] [2025-08-22T12:19:42.879Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZjQ0ZWRlODUtMzkzZS00ZmNiLThkZTAtNzIwMDY5ZjA5N2Zl {"name":"operations/workflows/ZjQ0ZWRlODUtMzkzZS00ZmNiLThkZTAtNzIwMDY5ZjA5N2Zl"}
+[debug] [2025-08-22T12:19:43.379Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2025-08-22T12:19:43.380Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:43.380Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:43.380Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZjQ0ZWRlODUtMzkzZS00ZmNiLThkZTAtNzIwMDY5ZjA5N2Zl [none]
+[debug] [2025-08-22T12:19:45.308Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZjQ0ZWRlODUtMzkzZS00ZmNiLThkZTAtNzIwMDY5ZjA5N2Zl 200
+[debug] [2025-08-22T12:19:45.308Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZjQ0ZWRlODUtMzkzZS00ZmNiLThkZTAtNzIwMDY5ZjA5N2Zl {"name":"operations/workflows/ZjQ0ZWRlODUtMzkzZS00ZmNiLThkZTAtNzIwMDY5ZjA5N2Zl"}
+[debug] [2025-08-22T12:19:46.310Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2025-08-22T12:19:46.310Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:46.310Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:46.310Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZjQ0ZWRlODUtMzkzZS00ZmNiLThkZTAtNzIwMDY5ZjA5N2Zl [none]
+[debug] [2025-08-22T12:19:46.912Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZjQ0ZWRlODUtMzkzZS00ZmNiLThkZTAtNzIwMDY5ZjA5N2Zl 200
+[debug] [2025-08-22T12:19:46.912Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZjQ0ZWRlODUtMzkzZS00ZmNiLThkZTAtNzIwMDY5ZjA5N2Zl {"name":"operations/workflows/ZjQ0ZWRlODUtMzkzZS00ZmNiLThkZTAtNzIwMDY5ZjA5N2Zl"}
+[debug] [2025-08-22T12:19:48.914Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2025-08-22T12:19:48.914Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:48.914Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:19:48.915Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZjQ0ZWRlODUtMzkzZS00ZmNiLThkZTAtNzIwMDY5ZjA5N2Zl [none]
+[debug] [2025-08-22T12:19:49.488Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZjQ0ZWRlODUtMzkzZS00ZmNiLThkZTAtNzIwMDY5ZjA5N2Zl 200
+[debug] [2025-08-22T12:19:49.489Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZjQ0ZWRlODUtMzkzZS00ZmNiLThkZTAtNzIwMDY5ZjA5N2Zl {"name":"operations/workflows/ZjQ0ZWRlODUtMzkzZS00ZmNiLThkZTAtNzIwMDY5ZjA5N2Zl","done":true,"response":{"@type":"type.googleapis.com/google.firebase.service.v1beta1.FirebaseProject","projectId":"studyai-2025","projectNumber":"567745836851","displayName":"StudyAI 2025","name":"projects/studyai-2025","resources":{"hostingSite":"studyai-2025"}}}
+[info] 
+[info] 🎉🎉🎉 Your Firebase project is ready! 🎉🎉🎉
+[info] 
+[info] Project information:
+[info]    - Project ID: studyai-2025
+[info]    - Project Name: StudyAI 2025
+[info] 
+[info] Firebase console is available at
+[info] https://console.firebase.google.com/project/studyai-2025/overview
+[debug] [2025-08-22T12:20:40.259Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-22T12:20:40.260Z] > authorizing via signed-in user (catanzaroepartners@gmail.com)
+[debug] [2025-08-22T12:20:40.261Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:20:40.261Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:20:40.261Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/studyai-2025/services/cloudresourcemanager.googleapis.com [none]
+[debug] [2025-08-22T12:20:40.262Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/studyai-2025/services/cloudresourcemanager.googleapis.com x-goog-quota-user=projects/studyai-2025
+[debug] [2025-08-22T12:20:41.277Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/studyai-2025/services/cloudresourcemanager.googleapis.com 200
+[debug] [2025-08-22T12:20:41.277Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/studyai-2025/services/cloudresourcemanager.googleapis.com [omitted]
+[debug] [2025-08-22T12:20:41.282Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:20:41.282Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:20:41.282Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/studyai-2025 [none]
+[debug] [2025-08-22T12:20:42.289Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/studyai-2025 200
+[debug] [2025-08-22T12:20:42.289Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/studyai-2025 {"projectNumber":"567745836851","projectId":"studyai-2025","lifecycleState":"ACTIVE","name":"StudyAI 2025","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-08-22T12:19:34.481058Z"}
+[info] Now using project studyai-2025
+[debug] [2025-08-22T12:20:56.507Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-22T12:20:56.507Z] > authorizing via signed-in user (catanzaroepartners@gmail.com)
+[debug] [2025-08-22T12:20:56.509Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:20:56.509Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:20:56.511Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/studyai-2025/webApps pageSize=100
+[debug] [2025-08-22T12:20:56.942Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/studyai-2025/webApps 200
+[debug] [2025-08-22T12:20:56.942Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/studyai-2025/webApps {}
+[debug] [2025-08-22T12:21:14.600Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-22T12:21:14.601Z] > authorizing via signed-in user (catanzaroepartners@gmail.com)
+[debug] [2025-08-22T12:21:14.602Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:21:14.602Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:21:14.602Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/studyai-2025/webApps [none]
+[debug] [2025-08-22T12:21:14.602Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/studyai-2025/webApps {"displayName":"StudyAI Web App"}
+[debug] [2025-08-22T12:21:15.835Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/studyai-2025/webApps 200
+[debug] [2025-08-22T12:21:15.835Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/studyai-2025/webApps {"name":"operations/workflows/MjhjYWVhNmMtNmQ3Zi00MjAxLWFjZDEtYmI0Yjg3NmY2Yjhl"}
+[debug] [2025-08-22T12:21:15.835Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:21:15.835Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:21:15.836Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjhjYWVhNmMtNmQ3Zi00MjAxLWFjZDEtYmI0Yjg3NmY2Yjhl [none]
+[debug] [2025-08-22T12:21:16.223Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjhjYWVhNmMtNmQ3Zi00MjAxLWFjZDEtYmI0Yjg3NmY2Yjhl 200
+[debug] [2025-08-22T12:21:16.224Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjhjYWVhNmMtNmQ3Zi00MjAxLWFjZDEtYmI0Yjg3NmY2Yjhl {"name":"operations/workflows/MjhjYWVhNmMtNmQ3Zi00MjAxLWFjZDEtYmI0Yjg3NmY2Yjhl"}
+[debug] [2025-08-22T12:21:16.725Z] [Create Web app Poller] Retrying task index 0
+[debug] [2025-08-22T12:21:16.725Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:21:16.725Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:21:16.726Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjhjYWVhNmMtNmQ3Zi00MjAxLWFjZDEtYmI0Yjg3NmY2Yjhl [none]
+[debug] [2025-08-22T12:21:17.114Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjhjYWVhNmMtNmQ3Zi00MjAxLWFjZDEtYmI0Yjg3NmY2Yjhl 200
+[debug] [2025-08-22T12:21:17.114Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjhjYWVhNmMtNmQ3Zi00MjAxLWFjZDEtYmI0Yjg3NmY2Yjhl {"name":"operations/workflows/MjhjYWVhNmMtNmQ3Zi00MjAxLWFjZDEtYmI0Yjg3NmY2Yjhl"}
+[debug] [2025-08-22T12:21:18.116Z] [Create Web app Poller] Retrying task index 0
+[debug] [2025-08-22T12:21:18.116Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:21:18.116Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:21:18.116Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjhjYWVhNmMtNmQ3Zi00MjAxLWFjZDEtYmI0Yjg3NmY2Yjhl [none]
+[debug] [2025-08-22T12:21:18.539Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjhjYWVhNmMtNmQ3Zi00MjAxLWFjZDEtYmI0Yjg3NmY2Yjhl 200
+[debug] [2025-08-22T12:21:18.539Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjhjYWVhNmMtNmQ3Zi00MjAxLWFjZDEtYmI0Yjg3NmY2Yjhl {"name":"operations/workflows/MjhjYWVhNmMtNmQ3Zi00MjAxLWFjZDEtYmI0Yjg3NmY2Yjhl"}
+[debug] [2025-08-22T12:21:20.541Z] [Create Web app Poller] Retrying task index 0
+[debug] [2025-08-22T12:21:20.541Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:21:20.541Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:21:20.542Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjhjYWVhNmMtNmQ3Zi00MjAxLWFjZDEtYmI0Yjg3NmY2Yjhl [none]
+[debug] [2025-08-22T12:21:20.914Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjhjYWVhNmMtNmQ3Zi00MjAxLWFjZDEtYmI0Yjg3NmY2Yjhl 200
+[debug] [2025-08-22T12:21:20.914Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjhjYWVhNmMtNmQ3Zi00MjAxLWFjZDEtYmI0Yjg3NmY2Yjhl {"name":"operations/workflows/MjhjYWVhNmMtNmQ3Zi00MjAxLWFjZDEtYmI0Yjg3NmY2Yjhl","done":true,"response":{"@type":"type.googleapis.com/google.firebase.service.v1beta1.WebApp","name":"projects/studyai-2025/webApps/1:567745836851:web:430884b37522c35406b046","appId":"1:567745836851:web:430884b37522c35406b046","displayName":"StudyAI Web App","projectId":"studyai-2025","webId":"ZTkxNmQ2OGQtNzI5NS00NTU4LWI0MWQtM2JhZTliMTc5MTc3","apiKeyId":"28c4238f-eed9-4101-a3d3-bf9f84c6ceee","state":"ACTIVE","expireTime":"1970-01-01T00:00:00Z","etag":"1_089aa080-d37a-426e-b136-f452210ce848"}}
+[debug] [2025-08-22T12:21:34.761Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-22T12:21:34.761Z] > authorizing via signed-in user (catanzaroepartners@gmail.com)
+[debug] [2025-08-22T12:21:34.761Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:21:34.761Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:21:34.762Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/studyai-2025/webApps pageSize=100
+[debug] [2025-08-22T12:21:35.213Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/studyai-2025/webApps 200
+[debug] [2025-08-22T12:21:35.213Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/studyai-2025/webApps {"apps":[{"name":"projects/studyai-2025/webApps/1:567745836851:web:430884b37522c35406b046","appId":"1:567745836851:web:430884b37522c35406b046","displayName":"StudyAI Web App","projectId":"studyai-2025","webId":"ZTkxNmQ2OGQtNzI5NS00NTU4LWI0MWQtM2JhZTliMTc5MTc3","apiKeyId":"28c4238f-eed9-4101-a3d3-bf9f84c6ceee","state":"ACTIVE","expireTime":"1970-01-01T00:00:00Z","etag":"1_089aa080-d37a-426e-b136-f452210ce848"}]}
+[debug] [2025-08-22T12:21:35.220Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:21:35.221Z] Checked if tokens are valid: true, expires at: 1755868741049
+[debug] [2025-08-22T12:21:35.221Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:567745836851:web:430884b37522c35406b046/config [none]
+[debug] [2025-08-22T12:21:35.745Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:567745836851:web:430884b37522c35406b046/config 200
+[debug] [2025-08-22T12:21:35.746Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:567745836851:web:430884b37522c35406b046/config {"projectId":"studyai-2025","appId":"1:567745836851:web:430884b37522c35406b046","storageBucket":"studyai-2025.firebasestorage.app","apiKey":"AIzaSyC2m4fgICpuH6yjTKntlPqRL3br8pbArz8","authDomain":"studyai-2025.firebaseapp.com","messagingSenderId":"567745836851"}

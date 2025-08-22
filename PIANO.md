@@ -43,93 +43,96 @@ StudyAI è una piattaforma SaaS per studenti che trasforma lezioni audio in riso
 ### **Fase 1: Setup Foundation** ⏱️ *2-3 giorni*
 
 #### 1.1 Configurazione Progetti
-- [ ] Creare progetto Supabase
-- [ ] Configurare progetto Firebase (solo AI Logic)
-- [ ] Setup environment variables
+- [x] Creare progetto Supabase
+- [x] Configurare progetto Firebase (solo AI Logic)
+- [x] Setup environment variables
 - [ ] Configurare domini e CORS
 
 #### 1.2 Dependency Installation
-- [ ] Installare Supabase SDK (`@supabase/supabase-js`)
-- [ ] Installare Firebase SDK (`firebase`)
-- [ ] Configurare TypeScript types
+- [x] Installare Supabase SDK (`@supabase/supabase-js`)
+- [x] Installare Firebase SDK (`firebase`)
+- [x] Configurare TypeScript types
 - [ ] Setup ESLint e Prettier
 
 #### 1.3 Basic Configuration
-- [ ] Creare `lib/supabase.ts` client
-- [ ] Creare `lib/firebase-ai.ts` client
-- [ ] Setup environment variables
-- [ ] Testare connessioni di base
+- [x] Creare `lib/supabase.ts` client
+- [x] Creare `lib/firebase-ai.ts` client
+- [x] Setup environment variables template
+- [x] Creare hook `useAudioProcessing`
+- [x] Testare connessioni di base
+- [x] Creare pagina test `/test-connections`
 
 ---
 
 ### **Fase 2: Supabase Integration** ⏱️ *3-4 giorni*
 
 #### 2.1 Database Schema
-- [ ] Creare tabella `profiles` (user data)
-- [ ] Creare tabella `subjects` (materie)
-- [ ] Creare tabella `lessons` (lezioni e contenuti)
-- [ ] Creare tabella `quizzes` (quiz generati)
-- [ ] Creare tabella `quiz_attempts` (tentativi e punteggi)
-- [ ] Creare tabella `chat_sessions` (conversazioni AI)
-- [ ] Creare tabella `study_analytics` (metriche di studio)
+- [x] Creare tabella `profiles` (user data)
+- [x] Creare tabella `subjects` (materie)
+- [x] Creare tabella `lessons` (lezioni e contenuti)
+- [x] Creare tabella `quizzes` (quiz generati)
+- [x] Creare tabella `quiz_attempts` (tentativi e punteggi)
+- [x] Creare tabella `chat_sessions` (conversazioni AI)
+- [x] Creare tabella `mind_maps` (mappe mentali AI)
 
 #### 2.2 Row Level Security (RLS)
-- [ ] Abilitare RLS su tutte le tabelle
-- [ ] Creare policy per `profiles`
-- [ ] Creare policy per `subjects`
-- [ ] Creare policy per `lessons`
-- [ ] Creare policy per `quizzes` e `quiz_attempts`
-- [ ] Creare policy per `chat_sessions`
+- [x] Abilitare RLS su tutte le tabelle
+- [x] Creare policy per `profiles`
+- [x] Creare policy per `subjects`
+- [x] Creare policy per `lessons`
+- [x] Creare policy per `quizzes` e `quiz_attempts`
+- [x] Creare policy per `chat_sessions`
 - [ ] Testare isolamento dei dati
 
 #### 2.3 Storage Configuration
-- [ ] Creare bucket `audio-lessons`
-- [ ] Configurare policy di upload
-- [ ] Configurare policy di accesso
+- [x] Creare bucket `audio-files`
+- [x] Creare bucket `avatars` e `exports`
+- [x] Configurare policy di upload
+- [x] Configurare policy di accesso
 - [ ] Testare upload/download file
 
 #### 2.4 Authentication Setup
-- [ ] Configurare email/password auth
-- [ ] Configurare Google OAuth
-- [ ] Configurare Apple OAuth (opzionale)
-- [ ] Creare auth helpers per Next.js
-- [ ] Implementare middleware per protezione route
+- [x] Configurare email/password auth
+- [x] Configurare Google OAuth
+- [x] Configurare Apple OAuth (opzionale)
+- [x] Creare auth helpers per Next.js
+- [x] Implementare middleware per protezione route
 
 ---
 
 ### **Fase 3: Firebase AI Logic Setup** ⏱️ *2-3 giorni*
 
 #### 3.1 Firebase Project Configuration
-- [ ] Creare progetto Firebase
-- [ ] Abilitare Vertex AI / AI Logic
-- [ ] Configurare Speech-to-Text API
-- [ ] Configurare Gemini Pro models
-- [ ] Setup billing e quotas
+- [x] Creare progetto Firebase
+- [x] Abilitare AI Logic
+- [x] Configurare Speech-to-Text API
+- [x] Configurare Gemini Flash models
+- [x] Setup billing e quotas
 
 #### 3.2 AI Services Integration
-- [ ] Implementare `transcribeAudio()` function
-- [ ] Implementare `generateSummary()` function
-- [ ] Implementare `generateQuiz()` function
-- [ ] Implementare `tutorChat()` function
-- [ ] Implementare `generateMindMap()` function
+- [x] Implementare `transcribeAudio()` function
+- [x] Implementare `generateSummary()` function
+- [x] Implementare `generateQuiz()` function
+- [x] Implementare `tutorChat()` function
+- [x] Implementare `generateMindMap()` function
 
 #### 3.3 Client-Side AI Wrapper
-- [ ] Creare `hooks/useAI.ts` per AI operations
-- [ ] Implementare error handling per AI calls
-- [ ] Aggiungere loading states
-- [ ] Implementare retry logic
-- [ ] Testare tutte le AI functions
+- [x] Creare `hooks/useAudioProcessing.ts` per AI operations
+- [x] Implementare error handling per AI calls
+- [x] Aggiungere loading states
+- [x] Implementare retry logic
+- [x] Testare tutte le AI functions
 
 ---
 
 ### **Fase 4: Core Features Implementation** ⏱️ *5-6 giorni*
 
 #### 4.1 Authentication Flow
-- [ ] Implementare pagina login/signup (`/auth`)
-- [ ] Creare onboarding flow (`/onboarding`)
-- [ ] Implementare profile management
-- [ ] Aggiungere social login buttons
-- [ ] Testare completo auth flow
+- [x] Implementare pagina login/signup (`/auth`)
+- [x] Creare onboarding flow (`/onboarding`)
+- [x] Implementare profile management
+- [x] Aggiungere social login buttons
+- [x] Testare completo auth flow
 
 #### 4.2 Dashboard Implementation
 - [ ] Aggiornare dashboard con dati reali
@@ -295,10 +298,10 @@ NEXT_PUBLIC_APP_URL=
 ## 📊 Progress Tracking
 
 ### **Milestone 1: Foundation** (Fasi 1-3)
-- [ ] ✅ Progetti configurati
-- [ ] ✅ Database schema creato
-- [ ] ✅ AI services funzionanti
-- [ ] ✅ Authentication implementata
+- [x] ✅ Progetti configurati
+- [x] ✅ Database schema creato
+- [x] ✅ AI services funzionanti
+- [x] ✅ Authentication implementata
 
 ### **Milestone 2: Core Features** (Fasi 4-5)
 - [ ] ✅ Audio upload e processing
