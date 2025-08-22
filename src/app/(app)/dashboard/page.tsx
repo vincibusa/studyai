@@ -160,7 +160,7 @@ export default function DashboardPage() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className=" rounded-2xl p-6 backdrop-blur-lg">
+            <div className="glass-card rounded-2xl p-6 backdrop-blur-xl border border-white/20">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-bold text-gray-900">Continue Learning</h3>
                 <ChevronRight className="w-5 h-5 text-gray-400 hover:text-primary transition-colors cursor-pointer" />
@@ -169,7 +169,7 @@ export default function DashboardPage() {
                 {subjects.slice(0, 3).map((subject, index) => (
                   <motion.div
                     key={index}
-                    className="bg-white rounded-xl p-4 cursor-pointer magnetic-hover border border-gray-200 shadow-sm"
+                    className="glass-card rounded-xl p-4 cursor-pointer magnetic-hover backdrop-blur-sm border border-gray-200/30"
                     whileHover={{ 
                       y: -3,
                       scale: 1.02,
@@ -224,10 +224,10 @@ export default function DashboardPage() {
                     </p>
                   </div>
                   <div className="flex justify-center space-x-3">
-                    <Button variant="outline" size="sm">
+                    <Button variant="glass" size="sm" className="border-gray-200/50 text-gray-900">
                       Upload File
                     </Button>
-                    <Button size="sm" variant="default" className="shadow-3d">
+                    <Button size="sm" variant="gradient" className="shadow-3d">
                       Record Audio
                     </Button>
                   </div>
@@ -242,13 +242,13 @@ export default function DashboardPage() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <div className=" rounded-2xl p-6 backdrop-blur-lg">
+            <div className="glass-card rounded-2xl p-6 backdrop-blur-xl border border-white/20">
               <h3 className="text-xl font-bold text-gray-900 mb-6">Recent Activity</h3>
               <div className="space-y-4">
                 {recentActivities.map((activity, index) => (
                   <motion.div 
                     key={index} 
-                    className="flex items-start space-x-3 p-4 rounded-xl bg-white cursor-pointer magnetic-hover border border-gray-200 shadow-sm"
+                    className="flex items-start space-x-3 p-4 rounded-xl glass-card cursor-pointer magnetic-hover backdrop-blur-sm border border-gray-200/30"
                     whileHover={{ 
                       y: -2,
                       scale: 1.01,
@@ -320,7 +320,7 @@ export default function DashboardPage() {
           >
             <div className="glass-card rounded-2xl p-6 backdrop-blur-lg bg-gradient-to-br from-primary/20 to-blue-400/20 border border-primary/30">
               <h3 className="text-lg font-bold text-gray-900 mb-4">AI Tools</h3>
-              <Button className="w-full bg-primary hover:bg-primary/90 text-white shadow-3d">
+              <Button className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white shadow-3d">
                 <MessageCircle className="w-4 h-4 mr-2" />
                 Chat with AI Tutor
               </Button>

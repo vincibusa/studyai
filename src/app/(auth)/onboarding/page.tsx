@@ -2,11 +2,9 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { ChevronLeft, ChevronRight, Clock, Sunrise, Sun, Moon, Eye, Headphones, FileText, Zap } from 'lucide-react';
 
@@ -75,20 +73,23 @@ export default function OnboardingPage() {
             </div>
             
             <div className="flex justify-center mb-6">
-              <div className="relative">
-                <Avatar className="w-24 h-24">
-                  <AvatarFallback className="text-2xl bg-primary/10 text-primary">
+              <motion.div 
+                className="relative"
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="w-24 h-24 glass-card rounded-2xl flex items-center justify-center backdrop-blur-sm border border-primary/30">
+                  <span className="text-primary font-bold text-2xl">
                     {formData.name.charAt(0).toUpperCase()}
-                  </AvatarFallback>
-                </Avatar>
+                  </span>
+                </div>
                 <Button
                   size="sm"
-                  className="absolute -bottom-2 -right-2 rounded-full h-8 w-8 p-0"
-                  variant="outline"
+                  className="absolute -bottom-2 -right-2 rounded-full h-8 w-8 p-0 glass backdrop-blur-sm border-gray-200/50"
+                  variant="ghost"
                 >
                   📷
                 </Button>
-              </div>
+              </motion.div>
             </div>
             
             <div className="space-y-4">
@@ -177,19 +178,20 @@ export default function OnboardingPage() {
               </h3>
               <div className="grid grid-cols-3 gap-3">
                 {studyTimes.map((time) => (
-                  <button
+                  <motion.button
                     key={time.id}
                     onClick={() => setFormData({ ...formData, studyTime: time.id })}
-                    className={`p-4 rounded-lg border-2 transition-colors text-center ${
+                    className={`p-4 rounded-xl border-2 transition-all duration-200 text-center magnetic-hover ${
                       formData.studyTime === time.id
-                        ? 'border-primary bg-primary/5 text-primary'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-primary bg-primary/20 text-primary shadow-3d backdrop-blur-sm'
+                        : 'glass-card border-gray-200/50 hover:border-primary/30'
                     }`}
+                    whileHover={{ y: -2, scale: 1.02 }}
                   >
                     <time.icon className="w-8 h-8 mx-auto mb-2" />
                     <div className="font-medium">{time.label}</div>
                     <div className="text-sm text-gray-500">{time.time}</div>
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </div>
@@ -199,18 +201,19 @@ export default function OnboardingPage() {
               <h3 className="font-semibold mb-4">Select your learning style</h3>
               <div className="grid grid-cols-2 gap-3">
                 {learningStyles.map((style) => (
-                  <button
+                  <motion.button
                     key={style.id}
                     onClick={() => setFormData({ ...formData, learningStyle: style.id })}
-                    className={`p-4 rounded-lg border-2 transition-colors text-center ${
+                    className={`p-4 rounded-xl border-2 transition-all duration-200 text-center magnetic-hover ${
                       formData.learningStyle === style.id
-                        ? 'border-primary bg-primary/5 text-primary'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-primary bg-primary/20 text-primary shadow-3d backdrop-blur-sm'
+                        : 'glass-card border-gray-200/50 hover:border-primary/30'
                     }`}
+                    whileHover={{ y: -2, scale: 1.02 }}
                   >
                     <style.icon className="w-8 h-8 mx-auto mb-2" />
                     <div className="font-medium">{style.label}</div>
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </div>
@@ -220,17 +223,18 @@ export default function OnboardingPage() {
               <h3 className="font-semibold mb-4">Study session duration</h3>
               <div className="flex space-x-2">
                 {sessionDurations.map((duration) => (
-                  <button
+                  <motion.button
                     key={duration}
                     onClick={() => setFormData({ ...formData, sessionDuration: duration })}
-                    className={`px-4 py-2 rounded-lg border-2 transition-colors ${
+                    className={`px-4 py-2 rounded-xl border-2 transition-all duration-200 magnetic-hover ${
                       formData.sessionDuration === duration
-                        ? 'border-primary bg-primary text-white'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-primary bg-primary text-white shadow-3d'
+                        : 'glass-card border-gray-200/50 text-gray-900 hover:border-primary/30'
                     }`}
+                    whileHover={{ y: -2, scale: 1.05 }}
                   >
                     {duration} min
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </div>
@@ -258,25 +262,33 @@ export default function OnboardingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-mesh-primary flex items-center justify-center p-4">
       <div className="w-full max-w-2xl">
-        <Card className="border-0 shadow-2xl">
-          <CardHeader className="text-center pb-6">
-            <div className="flex items-center justify-center space-x-3 mb-6">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold">S</span>
-              </div>
+        <div className="glass-card rounded-2xl p-8 backdrop-blur-xl border border-white/20">
+          <div className="text-center pb-6">
+            <motion.div 
+              className="flex items-center justify-center space-x-3 mb-6"
+              whileHover={{ scale: 1.05 }}
+            >
+              <motion.div 
+                className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-primary/30"
+                whileHover={{ rotate: 5, scale: 1.1 }}
+              >
+                <span className="text-primary font-bold text-xl">S</span>
+              </motion.div>
               <span className="text-xl font-bold text-gray-900">StudyAI</span>
-            </div>
+            </motion.div>
             
             {/* Progress bar */}
             <div className="flex items-center justify-between mb-6">
               <div className="text-sm text-gray-600">Step {currentStep} of {steps.length}</div>
               <div className="flex-1 mx-4">
-                <div className="bg-gray-200 rounded-full h-2">
-                  <div 
-                    className="bg-primary rounded-full h-2 transition-all duration-300"
-                    style={{ width: `${(currentStep / steps.length) * 100}%` }}
+                <div className="bg-gray-200/50 rounded-full h-2 overflow-hidden">
+                  <motion.div 
+                    className="bg-mesh-primary rounded-full h-2"
+                    initial={{ width: 0 }}
+                    animate={{ width: `${(currentStep / steps.length) * 100}%` }}
+                    transition={{ duration: 0.8 }}
                   />
                 </div>
               </div>
@@ -285,7 +297,11 @@ export default function OnboardingPage() {
             
             <div className="flex space-x-2 justify-center mb-6">
               {steps.map((step, index) => (
-                <div key={step.id} className="flex items-center">
+                <motion.div 
+                  key={step.id} 
+                  className="flex items-center"
+                  whileHover={{ scale: 1.2 }}
+                >
                   <div className={`w-3 h-3 rounded-full ${
                     currentStep >= step.id ? 'bg-primary' : 'bg-gray-300'
                   }`} />
@@ -294,37 +310,42 @@ export default function OnboardingPage() {
                       currentStep > step.id ? 'bg-primary' : 'bg-gray-300'
                     }`} />
                   )}
-                </div>
+                </motion.div>
               ))}
             </div>
-          </CardHeader>
+          </div>
           
-          <CardContent className="px-8 pb-8">
+          <div className="px-8 pb-8">
             <AnimatePresence mode="wait">
               {renderStep()}
             </AnimatePresence>
             
             <div className="flex justify-between mt-8">
-              <Button
-                variant="outline"
-                onClick={prevStep}
-                disabled={currentStep === 1}
-                className="flex items-center"
-              >
-                <ChevronLeft className="w-4 h-4 mr-2" />
-                Back
-              </Button>
+              <motion.div whileHover={{ scale: 1.05 }}>
+                <Button
+                  variant="glass"
+                  onClick={prevStep}
+                  disabled={currentStep === 1}
+                  className="flex items-center border-gray-200/50 text-gray-900"
+                >
+                  <ChevronLeft className="w-4 h-4 mr-2" />
+                  Back
+                </Button>
+              </motion.div>
               
-              <Button
-                onClick={currentStep === steps.length ? () => window.location.href = '/dashboard' : nextStep}
-                className="flex items-center bg-primary hover:bg-primary/90"
-              >
-                {currentStep === steps.length ? 'Continue' : 'Next'}
-                <ChevronRight className="w-4 h-4 ml-2" />
-              </Button>
+              <motion.div whileHover={{ scale: 1.05 }}>
+                <Button
+                  variant="gradient"
+                  onClick={currentStep === steps.length ? () => window.location.href = '/dashboard' : nextStep}
+                  className="flex items-center shadow-3d"
+                >
+                  {currentStep === steps.length ? 'Continue' : 'Next'}
+                  <ChevronRight className="w-4 h-4 ml-2" />
+                </Button>
+              </motion.div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
     </div>
   );

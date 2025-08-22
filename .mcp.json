@@ -1,0 +1,25 @@
+{
+    "mcpServers": {
+      "supabase": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@supabase/mcp-server-supabase@latest",
+          "--project-ref=rxaguwbxkcsxgckbmtvf"
+        ],
+        "env": {
+          "SUPABASE_ACCESS_TOKEN": "sbp_7db65b942c78b0b15f0b63d9f6fae59f31043623"
+        }
+      },
+      "firebase": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "firebase-tools@latest",
+          "experimental:mcp"
+        ]
+      }
+    }
+  }
+
+  

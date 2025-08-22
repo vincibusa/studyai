@@ -82,11 +82,11 @@ export default function WorkspacePage({ params }: { params: { id: string } }) {
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold">AI Generated Summary</h3>
               <div className="flex space-x-2">
-                <Button variant="outline" size="sm">
+                <Button variant="glass" size="sm" className="border-gray-200/50 text-gray-900">
                   <Copy className="w-4 h-4 mr-2" />
                   Copy
                 </Button>
-                <Button variant="outline" size="sm">
+                <Button variant="glass" size="sm" className="border-gray-200/50 text-gray-900">
                   <Download className="w-4 h-4 mr-2" />
                   Export
                 </Button>
@@ -120,7 +120,7 @@ export default function WorkspacePage({ params }: { params: { id: string } }) {
                 "Events are subsets of sample spaces",
                 "Probability values range from 0 to 1"
               ].map((point, index) => (
-                <div key={index} className="flex items-start space-x-3 p-3 bg-blue-50 rounded-lg">
+                <div key={index} className="flex items-start space-x-3 p-3 glass-card rounded-lg backdrop-blur-sm border border-blue-200/30">
                   <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                   <p className="text-gray-700">{point}</p>
                 </div>
@@ -134,7 +134,7 @@ export default function WorkspacePage({ params }: { params: { id: string } }) {
           <div className="space-y-4">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold">Practice Questions</h3>
-              <Button size="sm" className="bg-primary hover:bg-primary/90">
+              <Button size="sm" className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70">
                 Generate More
               </Button>
             </div>
@@ -176,22 +176,22 @@ export default function WorkspacePage({ params }: { params: { id: string } }) {
             <h3 className="font-semibold mb-4">Concept Explanations</h3>
             
             <div className="space-y-4">
-              <div className="p-4 bg-gray-50 rounded-lg">
+              <div className="p-4 glass-card rounded-lg backdrop-blur-sm border border-gray-200/30">
                 <h4 className="font-semibold mb-2 text-primary">Probability Theory</h4>
                 <p className="text-sm text-gray-700 mb-3">
                   A mathematical framework for analyzing uncertainty and random phenomena. It provides tools to quantify the likelihood of events and make predictions under uncertainty.
                 </p>
-                <Button variant="outline" size="sm">
+                <Button variant="glass" size="sm" className="border-gray-200/50 text-gray-900">
                   Learn more about this concept
                 </Button>
               </div>
               
-              <div className="p-4 bg-gray-50 rounded-lg">
+              <div className="p-4 glass-card rounded-lg backdrop-blur-sm border border-gray-200/30">
                 <h4 className="font-semibold mb-2 text-primary">Sample Space</h4>
                 <p className="text-sm text-gray-700 mb-3">
                   The set of all possible outcomes of a probability experiment. It forms the foundation for defining events and calculating probabilities.
                 </p>
-                <Button variant="outline" size="sm">
+                <Button variant="glass" size="sm" className="border-gray-200/50 text-gray-900">
                   Learn more about this concept
                 </Button>
               </div>
@@ -205,7 +205,7 @@ export default function WorkspacePage({ params }: { params: { id: string } }) {
             <h3 className="font-semibold mb-4">Related Resources</h3>
             
             <div className="space-y-3">
-              <div className="p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+              <div className="p-3 border rounded-lg hover:bg-white/10 cursor-pointer glass-card backdrop-blur-sm border-gray-200/30">
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
                     <FileText className="w-4 h-4 text-blue-600" />
@@ -217,7 +217,7 @@ export default function WorkspacePage({ params }: { params: { id: string } }) {
                 </div>
               </div>
               
-              <div className="p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+              <div className="p-3 border rounded-lg hover:bg-white/10 cursor-pointer glass-card backdrop-blur-sm border-gray-200/30">
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
                     <Brain className="w-4 h-4 text-green-600" />
@@ -229,7 +229,7 @@ export default function WorkspacePage({ params }: { params: { id: string } }) {
                 </div>
               </div>
               
-              <div className="p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+              <div className="p-3 border rounded-lg hover:bg-white/10 cursor-pointer glass-card backdrop-blur-sm border-gray-200/30">
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
                     <BarChart3 className="w-4 h-4 text-orange-600" />
@@ -248,6 +248,16 @@ export default function WorkspacePage({ params }: { params: { id: string } }) {
         return null;
     }
   };
+
+  // Deterministic pseudo-random generator so SSR and client match
+  const pseudoRandom = (i: number, seed = 0) => {
+    const v = Math.sin((i + seed) * 12.9898) * 43758.5453
+    return Math.abs(v - Math.floor(v))
+  }
+
+  const waveformBars = Array.from({ length: 40 }).map((_, i) => ({
+    height: `${(20 + pseudoRandom(i, 1) * 60).toFixed(4)}%`
+  }))
 
   return (
     <div className="h-screen flex">
@@ -270,18 +280,16 @@ export default function WorkspacePage({ params }: { params: { id: string } }) {
         </div>
 
         {/* Audio Waveform Visualization */}
-        <div className="bg-gray-50 rounded-lg p-4">
+        <div className="glass-card rounded-lg p-4 backdrop-blur-sm border border-gray-200/30">
           <div className="flex items-center justify-center h-24 mb-4">
             <div className="flex items-end space-x-1 h-full">
-              {Array.from({ length: 40 }, (_, i) => (
+              {waveformBars.map((b, i) => (
                 <div
                   key={i}
                   className={`w-1 bg-primary rounded-full ${
                     i < (progress / 100) * 40 ? 'opacity-100' : 'opacity-30'
                   }`}
-                  style={{ 
-                    height: `${20 + Math.random() * 60}%`,
-                  }}
+                  style={{ height: b.height }}
                 />
               ))}
             </div>
@@ -302,23 +310,25 @@ export default function WorkspacePage({ params }: { params: { id: string } }) {
         {/* Audio Controls */}
         <div className="space-y-4">
           <div className="flex items-center justify-center space-x-4">
-            <Button variant="ghost" size="sm">
+            <Button variant="glass" size="sm" className="border-gray-200/50 text-gray-900">
               <SkipBack className="w-4 h-4" />
             </Button>
             
-            <Button
-              size="sm"
-              onClick={() => setIsPlaying(!isPlaying)}
-              className="w-12 h-12 rounded-full bg-primary hover:bg-primary/90"
-            >
-              {isPlaying ? (
-                <Pause className="w-5 h-5 text-white" />
-              ) : (
-                <Play className="w-5 h-5 text-white ml-1" />
-              )}
-            </Button>
+            <motion.div whileHover={{ scale: 1.1 }}>
+              <Button
+                size="sm"
+                onClick={() => setIsPlaying(!isPlaying)}
+                className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-3d"
+              >
+                {isPlaying ? (
+                  <Pause className="w-5 h-5 text-white" />
+                ) : (
+                  <Play className="w-5 h-5 text-white ml-1" />
+                )}
+              </Button>
+            </motion.div>
             
-            <Button variant="ghost" size="sm">
+            <Button variant="glass" size="sm" className="border-gray-200/50 text-gray-900">
               <SkipForward className="w-4 h-4" />
             </Button>
           </div>
@@ -341,12 +351,12 @@ export default function WorkspacePage({ params }: { params: { id: string } }) {
         <div className="space-y-3">
           <div className="text-sm font-medium text-gray-900 mb-3">Quick Actions</div>
           
-          <Button variant="outline" size="sm" className="w-full justify-start">
+          <Button variant="glass" size="sm" className="w-full justify-start border-gray-200/50 text-gray-900">
             <Download className="w-4 h-4 mr-2" />
             Download Original
           </Button>
           
-          <Button variant="outline" size="sm" className="w-full justify-start">
+          <Button variant="glass" size="sm" className="w-full justify-start border-gray-200/50 text-gray-900">
             <Share className="w-4 h-4 mr-2" />
             Share Session
           </Button>
@@ -371,7 +381,7 @@ export default function WorkspacePage({ params }: { params: { id: string } }) {
                   className="pl-10 w-64"
                 />
               </div>
-              <Button variant="outline" size="sm">
+              <Button variant="glass" size="sm" className="border-gray-200/50 text-gray-900">
                 <Settings className="w-4 h-4 mr-2" />
                 Settings
               </Button>
@@ -386,8 +396,7 @@ export default function WorkspacePage({ params }: { params: { id: string } }) {
               initial={{ x: 20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.3, delay: segment.id * 0.1 }}
-              className="flex space-x-4 p-4 hover:bg-gray-50 rounded-lg cursor-pointer group"
-            >
+              className="flex space-x-4 p-4 hover:bg-white/10 rounded-lg cursor-pointer group glass-card backdrop-blur-sm border border-transparent hover:border-gray-200/20 transition-all">
               <div className="text-sm text-primary font-mono w-12 flex-shrink-0">
                 {segment.timestamp}
               </div>
@@ -453,7 +462,7 @@ export default function WorkspacePage({ params }: { params: { id: string } }) {
               placeholder="Ask about this lesson..."
               className="flex-1"
             />
-            <Button size="sm" className="bg-primary hover:bg-primary/90">
+            <Button size="sm" className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70">
               <Send className="w-4 h-4" />
             </Button>
           </div>

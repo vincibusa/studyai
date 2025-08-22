@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -180,7 +179,7 @@ export default function SettingsPage() {
                   { key: 'weeklyReports', label: 'Weekly progress reports', desc: 'Summary of your study activity' },
                   { key: 'examAlerts', label: 'Exam reminders', desc: 'Alerts for upcoming exams' },
                 ].map((item) => (
-                  <div key={item.key} className="flex items-center justify-between p-4 border rounded-lg">
+                  <div key={item.key} className="flex items-center justify-between p-4 glass-card rounded-lg backdrop-blur-sm border border-gray-200/30">
                     <div>
                       <div className="font-medium">{item.label}</div>
                       <div className="text-sm text-gray-600">{item.desc}</div>
@@ -213,7 +212,7 @@ export default function SettingsPage() {
                   { key: 'pushNotifications', label: 'Push notifications', desc: 'Receive notifications on your device' },
                   { key: 'studyReminders', label: 'Study reminders', desc: 'Reminders for scheduled study sessions' },
                 ].map((item) => (
-                  <div key={item.key} className="flex items-center justify-between p-4 border rounded-lg">
+                  <div key={item.key} className="flex items-center justify-between p-4 glass-card rounded-lg backdrop-blur-sm border border-gray-200/30">
                     <div>
                       <div className="font-medium">{item.label}</div>
                       <div className="text-sm text-gray-600">{item.desc}</div>
@@ -620,26 +619,25 @@ export default function SettingsPage() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="xl:w-64 flex-shrink-0"
         >
-          <Card>
-            <CardContent className="p-4">
-              <nav className="space-y-2">
-                {settingsTabs.map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-left transition-colors ${
-                      activeTab === tab.id
-                        ? 'bg-primary text-white'
-                        : 'text-gray-700 hover:bg-gray-100'
-                    }`}
-                  >
-                    <tab.icon className="w-4 h-4" />
-                    <span className="font-medium">{tab.label}</span>
-                  </button>
-                ))}
-              </nav>
-            </CardContent>
-          </Card>
+          <div className="glass-card rounded-2xl p-6 backdrop-blur-xl border border-gray-200/30">
+          <nav className="space-y-2">
+            {settingsTabs.map((tab) => (
+              <motion.button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-left transition-colors magnetic-hover ${
+                  activeTab === tab.id
+                    ? 'bg-gradient-to-r from-primary to-primary/80 text-white shadow-3d'
+                    : 'glass-card backdrop-blur-sm border border-gray-200/30 text-gray-700 hover:bg-primary/10'
+                }`}
+                whileHover={{ y: -2, scale: 1.02 }}
+              >
+                <tab.icon className="w-4 h-4" />
+                <span className="font-medium">{tab.label}</span>
+              </motion.button>
+            ))}
+          </nav>
+        </div>
         </motion.div>
 
         {/* Main Content */}
@@ -649,9 +647,9 @@ export default function SettingsPage() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="flex-1"
         >
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center">
+          <div className="glass-card rounded-2xl backdrop-blur-xl border border-gray-200/30">
+            <div className="p-6 border-b border-gray-200/30">
+              <h3 className="text-lg font-bold text-gray-900 flex items-center">
                 {(() => {
                   const activeTabData = settingsTabs.find(tab => tab.id === activeTab);
                   if (activeTabData) {
@@ -661,12 +659,12 @@ export default function SettingsPage() {
                   return null;
                 })()}
                 {settingsTabs.find(tab => tab.id === activeTab)?.label}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="p-6">
+              </h3>
+            </div>
+            <div className="p-6">
               {renderTabContent()}
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </motion.div>
       </div>
     </div>

@@ -139,13 +139,13 @@ export default function QuizPage() {
                   <p className="text-blue-100 mb-6">Start a quick practice session</p>
                   
                   <div className="flex items-center space-x-4 mb-6">
-                    <Button variant="secondary" size="sm">
+                    <Button variant="glass" size="sm" className="bg-white/20 text-white border-white/30">
                       5 questions
                     </Button>
-                    <Button variant="ghost" size="sm" className="text-white hover:bg-white/20">
+                    <Button variant="glass" size="sm" className="text-white hover:bg-white/20 border-white/20">
                       10 questions
                     </Button>
-                    <Button variant="ghost" size="sm" className="text-white hover:bg-white/20">
+                    <Button variant="glass" size="sm" className="text-white hover:bg-white/20 border-white/20">
                       20 questions
                     </Button>
                   </div>
@@ -244,19 +244,17 @@ export default function QuizPage() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <Card className="bg-teal-50 border-teal-200">
-              <CardHeader>
-                <CardTitle className="text-teal-900">Quick Practice</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white mb-3">
+            <div className="glass-card bg-gradient-to-r from-teal-400/20 to-teal-600/20 border-teal-200/50 rounded-2xl p-6 backdrop-blur-xl">
+              <h3 className="text-lg font-bold text-teal-900 mb-4">Quick Practice</h3>
+              <div className="space-y-3">
+                <Button className="w-full bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white shadow-3d">
                   Confident Practice
                 </Button>
                 <p className="text-sm text-teal-700">
                   Practice topics you're confident about
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </motion.div>
 
           {/* Performance Card */}
@@ -265,14 +263,12 @@ export default function QuizPage() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <Brain className="w-5 h-5 mr-2 text-primary" />
-                  Performance
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
+            <div className="glass-card rounded-2xl p-6 backdrop-blur-xl border border-gray-200/30">
+              <h3 className="flex items-center text-lg font-bold text-gray-900 mb-4">
+                <Brain className="w-5 h-5 mr-2 text-primary" />
+                Performance
+              </h3>
+              <div className="space-y-4">
                 <div className="text-center mb-4">
                   <div className="text-3xl font-bold text-primary mb-1">2</div>
                   <div className="text-sm text-gray-600">average score</div>
@@ -282,7 +278,7 @@ export default function QuizPage() {
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-600">Math</span>
                     <div className="flex items-center">
-                      <div className="w-16 bg-gray-200 rounded-full h-2 mr-2">
+                      <div className="w-16 bg-gray-200/50 rounded-full h-2 mr-2">
                         <div className="bg-orange-400 rounded-full h-2" style={{ width: '80%' }} />
                       </div>
                       <span className="text-sm font-medium">80%</span>
@@ -292,15 +288,15 @@ export default function QuizPage() {
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-600">Science</span>
                     <div className="flex items-center">
-                      <div className="w-16 bg-gray-200 rounded-full h-2 mr-2">
+                      <div className="w-16 bg-gray-200/50 rounded-full h-2 mr-2">
                         <div className="bg-green-400 rounded-full h-2" style={{ width: '95%' }} />
                       </div>
                       <span className="text-sm font-medium">95%</span>
                     </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </motion.div>
 
           {/* Study Recommendations */}
@@ -309,26 +305,22 @@ export default function QuizPage() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-sm">Study Recommendations</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-start space-x-3 p-2 bg-yellow-50 rounded-lg">
-                    <Award className="w-4 h-4 text-yellow-600 mt-1 flex-shrink-0" />
-                    <div>
-                      <div className="text-sm font-medium text-yellow-900">65%</div>
-                      <div className="text-xs text-yellow-700">average score</div>
-                    </div>
+            <div className="glass-card rounded-2xl p-6 backdrop-blur-xl border border-gray-200/30">
+              <h3 className="text-sm font-bold text-gray-900 mb-4">Study Recommendations</h3>
+              <div className="space-y-3">
+                <div className="flex items-start space-x-3 p-2 glass-card rounded-lg backdrop-blur-sm border border-yellow-200/50">
+                  <Award className="w-4 h-4 text-yellow-600 mt-1 flex-shrink-0" />
+                  <div>
+                    <div className="text-sm font-medium text-yellow-900">65%</div>
+                    <div className="text-xs text-yellow-700">average score</div>
                   </div>
-                  
-                  <p className="text-xs text-gray-600">
-                    Focus on mathematics topics to improve your overall performance.
-                  </p>
                 </div>
-              </CardContent>
-            </Card>
+                
+                <p className="text-xs text-gray-600">
+                  Focus on mathematics topics to improve your overall performance.
+                </p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

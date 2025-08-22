@@ -160,12 +160,12 @@ export default function MindMapsPage() {
             />
           </div>
           
-          <Button variant="outline">
+          <Button variant="glass" className="border-gray-200/50 text-gray-900">
             <Upload className="w-4 h-4 mr-2" />
             Import
           </Button>
           
-          <Button variant="outline">
+          <Button variant="glass" className="border-gray-200/50 text-gray-900">
             Export
           </Button>
           
@@ -184,8 +184,8 @@ export default function MindMapsPage() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="flex-1"
         >
-          <Card className="h-[600px] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gray-50">
+          <div className="glass-card h-[600px] relative overflow-hidden rounded-2xl backdrop-blur-xl border border-gray-200/30">
+            <div className="absolute inset-0 bg-white/5 backdrop-blur-sm">
               {/* Grid background */}
               <svg className="absolute inset-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle, #e5e7eb 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
                 {connections.map(renderConnection)}
@@ -197,22 +197,22 @@ export default function MindMapsPage() {
               </div>
 
               {/* Toolbar */}
-              <div className="absolute top-4 left-4 flex items-center space-x-2 bg-white rounded-lg shadow-lg p-2">
-                <Button variant="ghost" size="sm">100 +</Button>
-                <Button variant="ghost" size="sm"><Triangle className="w-4 h-4" /></Button>
-                <Button variant="ghost" size="sm"><Circle className="w-4 h-4" /></Button>
-                <Button variant="ghost" size="sm"><Square className="w-4 h-4" /></Button>
-                <Button variant="ghost" size="sm"><MoreHorizontal className="w-4 h-4" /></Button>
+              <div className="absolute top-4 left-4 flex items-center space-x-2 glass-card rounded-lg backdrop-blur-sm border border-gray-200/30 p-2">
+                <Button variant="glass" size="sm" className="border-gray-200/50 text-gray-900">100 +</Button>
+                <Button variant="glass" size="sm" className="border-gray-200/50 text-gray-900"><Triangle className="w-4 h-4" /></Button>
+                <Button variant="glass" size="sm" className="border-gray-200/50 text-gray-900"><Circle className="w-4 h-4" /></Button>
+                <Button variant="glass" size="sm" className="border-gray-200/50 text-gray-900"><Square className="w-4 h-4" /></Button>
+                <Button variant="glass" size="sm" className="border-gray-200/50 text-gray-900"><MoreHorizontal className="w-4 h-4" /></Button>
               </div>
 
               {/* Zoom controls */}
-              <div className="absolute bottom-4 right-4 bg-white rounded-lg shadow-lg p-2">
-                <Button variant="ghost" size="sm">
+              <div className="absolute bottom-4 right-4 glass-card rounded-lg backdrop-blur-sm border border-gray-200/30 p-2">
+                <Button variant="glass" size="sm" className="border-gray-200/50 text-gray-900">
                   <Maximize2 className="w-4 h-4" />
                 </Button>
               </div>
             </div>
-          </Card>
+          </div>
         </motion.div>
 
         {/* Right Sidebar */}

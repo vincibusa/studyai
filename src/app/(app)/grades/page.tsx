@@ -227,8 +227,9 @@ export default function GradesPage() {
                       initial={{ x: 20, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ duration: 0.3, delay: index * 0.1 }}
-                      className="p-4 border rounded-lg hover:shadow-md transition-shadow cursor-pointer"
+                      className="p-4 glass-card rounded-xl backdrop-blur-sm border border-gray-200/30 hover:shadow-lg transition-shadow cursor-pointer magnetic-hover"
                       onClick={() => setSelectedSubject(selectedSubject === subject.id ? null : subject.id)}
+                      whileHover={{ y: -2, scale: 1.02 }}
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-4">
@@ -254,7 +255,7 @@ export default function GradesPage() {
                           
                           <div className="flex items-center space-x-2">
                             {getTrendIcon(subject.currentGrade, subject.targetGrade)}
-                            <Button variant="ghost" size="sm">
+                            <Button variant="glass" size="sm" className="border-gray-200/50 text-gray-900">
                               <Edit className="w-4 h-4" />
                             </Button>
                           </div>

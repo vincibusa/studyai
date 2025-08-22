@@ -122,18 +122,18 @@ export default function LessonsPage() {
         <div className="flex items-center space-x-3">
           <div className="flex items-center glass rounded-lg p-1 backdrop-blur-sm border border-gray-200/50">
             <Button
-              variant={viewMode === 'grid' ? 'default' : 'ghost'}
+              variant={viewMode === 'grid' ? 'gradient' : 'glass'}
               size="sm"
               onClick={() => setViewMode('grid')}
-              className="px-3"
+              className="px-3 border-gray-200/50 text-gray-900"
             >
               <Grid3X3 className="w-4 h-4" />
             </Button>
             <Button
-              variant={viewMode === 'list' ? 'default' : 'ghost'}
+              variant={viewMode === 'list' ? 'gradient' : 'glass'}
               size="sm"
               onClick={() => setViewMode('list')}
-              className="px-3"
+              className="px-3 border-gray-200/50 text-gray-900"
             >
               <List className="w-4 h-4" />
             </Button>
@@ -273,7 +273,7 @@ export default function LessonsPage() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.1 * index }}
               >
-                <div className="glass-card rounded-2xl p-6 backdrop-blur-lg cursor-pointer magnetic-hover perspective-1000"
+                <motion.div className="glass-card rounded-2xl p-6 backdrop-blur-lg cursor-pointer magnetic-hover perspective-1000"
                   whileHover={{ 
                     y: -5,
                     rotateY: 2,
@@ -292,7 +292,7 @@ export default function LessonsPage() {
                         <p className="text-sm text-gray-600 mt-1">{lesson.professor}</p>
                       </div>
                     </div>
-                    <Button variant="ghost" size="sm" className="text-gray-400 hover:text-gray-900">
+                    <Button variant="glass" size="sm" className="text-gray-400 hover:text-gray-900 border-gray-200/50">
                       <MoreHorizontal className="w-4 h-4" />
                     </Button>
                   </div>
@@ -350,7 +350,7 @@ export default function LessonsPage() {
                       </Button>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </motion.div>
             ))}
           </motion.div>
